@@ -104,6 +104,66 @@
         </div>
       </div>
 
+        <!-- Charts Section -->
+        <div class="mt-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Análisis y Estadísticas</h2>
+          
+          <!-- Charts Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Bar Chart - Usuarios por Mes -->
+            <app-bar-chart
+              title="Usuarios Registrados por Mes"
+              subtitle="Evolución mensual de nuevos usuarios"
+              [data]="chartData.usersByMonth"
+              [height]="350">
+            </app-bar-chart>
+
+            <!-- Pie Chart - Distribución de Dispositivos -->
+            <app-pie-chart
+              title="Distribución por Dispositivos"
+              subtitle="Porcentaje de usuarios por tipo de dispositivo"
+              [data]="chartData.deviceDistribution"
+              [height]="350">
+            </app-pie-chart>
+
+            <!-- Line Chart - Ingresos vs Gastos -->
+            <!-- <app-line-chart
+              title="Ingresos vs Gastos"
+              subtitle="Comparación mensual de ingresos y gastos"
+              [data]="chartData.revenueVsExpenses"
+              [height]="350"
+              xAxisLabel="Mes"
+              yAxisLabel="Monto ($)">
+            </app-line-chart> -->
+
+            <!-- Area Chart - Crecimiento de Usuarios -->
+            <!-- <app-area-chart
+              title="Crecimiento de Usuarios"
+              subtitle="Evolución de usuarios activos y nuevos"
+              [data]="chartData.userGrowth"
+              [height]="350"
+              xAxisLabel="Mes"
+              yAxisLabel="Número de Usuarios">
+            </app-area-chart> -->
+          </div>
+
+          <!-- Nuevo Gráfico de Barras Verticales con ngx-chartjs -->
+          <!-- <div class="mt-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Gráfico de Barras Verticales (ngx-chartjs)</h3>
+            <div class="bg-white p-6 rounded-lg shadow">
+              <app-vertical-bar-chart></app-vertical-bar-chart>
+            </div>
+          </div> -->
+
+          <!-- Gráfico de Barras Agrupadas con ngx-chartjs -->
+          <!-- <div class="mt-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Gráfico de Barras Agrupadas - Registros vs Aportes (ngx-chartjs)</h3>
+            <div class="bg-white p-6 rounded-lg shadow">
+              <app-grouped-bar-chart></app-grouped-bar-chart>
+            </div>
+          </div> -->
+        </div>
+
         <!-- Error Message -->
         @if (error) {
           <div class="mt-4 bg-red-50 border border-red-200 rounded-md p-4">

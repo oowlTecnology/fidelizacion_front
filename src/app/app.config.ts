@@ -1,10 +1,12 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { ChartjsModule } from '@ctrl/ngx-chartjs';
 
 import { routes } from './app.routes';
 import { AuthStateClass } from './store/states/auth.state';
@@ -18,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
+    provideAnimationsAsync(),
     importProvidersFrom(
       NgxsModule.forRoot([
         AuthStateClass,
@@ -30,7 +33,8 @@ export const appConfig: ApplicationConfig = {
       NgxsLoggerPluginModule.forRoot({
         disabled: false
       }),
-      NgxsRouterPluginModule.forRoot()
+      NgxsRouterPluginModule.forRoot(),
+      ChartjsModule
     )
   ]
 };
