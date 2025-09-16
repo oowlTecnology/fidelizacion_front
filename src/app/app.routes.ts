@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { GuestGuard } from './core/guards/guest.guard';
 import { AppLayoutComponent } from './shared/components/app-layout/app-layout.component';
+import { SidebarLayoutComponent } from './shared/layouts/sidebar-layout/sidebar-layout.component';
 
 export const routes: Routes = [
   {
@@ -16,7 +17,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    component: AppLayoutComponent,
+    component: SidebarLayoutComponent,
     canActivate: [AuthGuard],
     children: [
       {
@@ -24,9 +25,37 @@ export const routes: Routes = [
         loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
-        path: 'users',
-        loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule)
+        path: 'affiliates',
+        loadChildren: () => import('./features/affiliates/affiliates.module').then(m => m.AffiliatesModule)
       },
+      {
+        path: 'events',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'communications',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'territory',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'finance',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'reports',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'help',
+        loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
     ]
   },
   {
